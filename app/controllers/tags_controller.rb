@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show, :edit, :update]
+  before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   def index
     @tags = Tag.all
@@ -33,6 +33,13 @@ class TagsController < ApplicationController
     else
       flash[:alert] = "Tag has not been updated"
       render 'edit'
+    end
+  end
+
+  def destroy
+    if @tag.destroy
+      flash[:success] = "Tag deleted"
+      redirect_to tags_path
     end
   end
 
