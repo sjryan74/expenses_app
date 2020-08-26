@@ -1,20 +1,23 @@
 <h1>Tags</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <body>
-    <% @tags.each do |tag| %>
-    <tr>
-      <td><%= link_to tag.name, tag_path(tag) %></td>
-      <td><%= tag.description %></td>
-    </tr>
-    <% end %>
-  </body>
-</table>
+<p><%= link_to  "New Tag", new_tag_path %></p>
 
-<%= link_to  "New Tag", new_tag_path %>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-sm">
+    <thead class="thead-light">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <body>
+      <% @tags.each do |tag| %>
+      <tr>
+        <td><%= link_to tag.name, tag_path(tag) %></td>
+        <td><%= tag.description %></td>
+      </tr>
+      <% end %>
+    </body>
+  </table>
+</div>
+
