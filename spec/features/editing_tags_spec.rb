@@ -6,7 +6,7 @@ RSpec.feature "Users can edit existing tags" do
     visit "/"
 
     click_link "TheTag"
-    click_link "Edit Tag"
+    click_link "Edit"
   end
 
   scenario "with valid attributes" do
