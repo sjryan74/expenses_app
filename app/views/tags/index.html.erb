@@ -10,7 +10,7 @@
   <body>
     <% @tags.each do |tag| %>
     <tr>
-      <td><%= tag.name %></td>
+      <td><%= link_to tag.name, tag_path(tag) %></td>
       <td><%= tag.description %></td>
     </tr>
     <% end %>

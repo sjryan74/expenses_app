@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show]
+  before_action :set_tag, only: [:show, :edit, :update]
 
   def index
     @tags = Tag.all
@@ -21,6 +21,19 @@ class TagsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @tag.update(tag_params)
+      flash[:success] = "Tag updated"
+      redirect_to @tag
+    else
+      flash[:alert] = "Tag has not been updated"
+      render 'edit'
+    end
   end
 
   private
