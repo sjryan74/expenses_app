@@ -1,1 +1,9 @@
  @import "bootstrap";
+
+a.crud_button {
+  @extend .btn, .btn-primary;
+}
+
+input[type=submit] {
+  @extend .btn, .btn-primary;
+}
