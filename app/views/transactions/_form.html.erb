@@ -1,0 +1,20 @@
+<%= form_for(transaction, remote: true) do |f| %>
+  <div class="field">
+    <%= f.label :trans_date, "Trans Date" %>
+    <%= f.date_field :trans_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: :any %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
