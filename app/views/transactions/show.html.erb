@@ -15,6 +15,8 @@
   <%= number_to_currency(@transaction.amount, unit: '') %>
 </p>
 
+<%= link_to "Edit", edit_transaction_path(@transaction), class: "crud_button" %>
+
 <p><br>
 <%= link_to "Back", transactions_path %>
 </p>

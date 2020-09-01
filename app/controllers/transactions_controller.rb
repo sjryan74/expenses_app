@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  before_action :set_transaction, only: [:show, :edit, :update]
+
   def index
     @transactions = Transaction.all.order(:trans_date)
   end
@@ -17,11 +19,26 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @transaction.update(transaction_params)
+      flash[:success] = "Transaction updated"
+      redirect_to @transaction
+    else
+      # nothing yet
+    end
+  end
+
   def show
-    @transaction = Transaction.find(params[:id])
   end
 
   private
+
+  def set_transaction
+    @transaction = Transaction.find(params[:id])
+  end
 
   def transaction_params
     params.require(:transaction).permit(:trans_date, :amount, :description)
