@@ -15,7 +15,7 @@
       <% @transactions.each do |trx| %>
       <tr>
         <td><%= trx.trans_date %></td>
-        <td><%= number_to_currency(trx.amount, unit: '') %></td>
+        <td><%= link_to number_to_currency(trx.amount, unit: '').to_s, transaction_path(trx) %></td>
         <td><%= trx.description %></td>
       </tr>
       <% end %>
