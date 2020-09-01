@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update]
+  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   def index
     @transactions = Transaction.all.order(:trans_date)
@@ -32,6 +32,13 @@ class TransactionsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    if @transaction.destroy
+      flash[:success] = "Transaction deleted"
+      redirect_to tags_path
+    end
   end
 
   private
