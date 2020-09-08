@@ -20,4 +20,12 @@ RSpec.feature "Users can edit transactions" do
     expect(page).to have_content("Account fee")  
     expect(page).to have_content("23.50")
   end
+
+  scenario "adding tags" do
+    fill_in "Tags", with: "isp,bill"
+    click_button "Update Transaction"
+
+    expect(page).to have_content("isp")
+    expect(page).to have_content("bill")
+  end
 end

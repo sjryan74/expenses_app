@@ -24,6 +24,8 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    @transaction.tags << processed_tags
+
     if @transaction.update(transaction_params)
       flash[:success] = "Transaction updated"
       redirect_to @transaction
