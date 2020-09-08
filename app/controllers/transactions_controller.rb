@@ -11,6 +11,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @transaction.tags = processed_tags
     if @transaction.save
       flash[:success] = "Transaction created"
       redirect_to transactions_path
@@ -49,5 +50,11 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:trans_date, :amount, :description)
+  end
+
+  def processed_tags
+    params[:tag_names].split(",").map do |tag|
+      Tag.find_or_initialize_by(name: tag)
+    end
   end
 end

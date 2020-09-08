@@ -8,6 +8,7 @@
       <tr>
         <th>Date</th>
         <th>Amount</th>
+        <th>Tags</th>
         <th>Description</th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= trx.trans_date %></td>
         <td><%= link_to number_to_currency(trx.amount, unit: '').to_s, transaction_path(trx) %></td>
+        <td><%= render trx.tags %></td>
         <td><%= trx.description %></td>
       </tr>
       <% end %>

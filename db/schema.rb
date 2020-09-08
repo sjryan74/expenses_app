@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_034515) do
+ActiveRecord::Schema.define(version: 2020_09_07_225915) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transaction_tags", id: false, force: :cascade do |t|
+    t.integer "transaction_id", null: false
+    t.integer "tag_id", null: false
+    t.index ["tag_id", "transaction_id"], name: "index_transaction_tags_on_tag_id_and_transaction_id"
+    t.index ["transaction_id", "tag_id"], name: "index_transaction_tags_on_transaction_id_and_tag_id"
   end
 
   create_table "transactions", force: :cascade do |t|
