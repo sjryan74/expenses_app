@@ -1,4 +1,6 @@
  @import "bootstrap";
+ @import "font-awesome";
+ @import "transactions";
 
 a.crud_button {
   @extend .btn, .btn-outline-primary;

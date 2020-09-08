@@ -1,3 +1,26 @@
 // Place all the styles related to the Transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import "font-awesome";
+
+.state {
+  @extend .rounded, .px-2, .py-1 !optional;
+  display: inline-block;
+  font-size: 110%;
+  color: white;
+}
+
+.tag {
+  @extend .state, .mr-1, .mb-1, .border;
+  color: black;
+
+  a {
+    color: black;
+    &.remove {
+      font-family: "FontAwesome";
+      @extend .fa-close;
+      text-decoration: none;
+    }
+  }
+}
