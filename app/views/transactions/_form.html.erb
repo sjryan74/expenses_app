@@ -20,7 +20,7 @@
   <div class="form-group row">
     <div class="col-sm-4">
       <%= label_tag :tag_names, "Tags", class: "col-form-label" %>
-      <%= render transaction.tags, tag_actionable: true %>
+      <%= render transaction.tags, transaction: transaction, tag_actionable: true %>
       <%= text_field_tag :tag_names, "", class: "form-control form-control-sm" %>
     </div>
   </div>

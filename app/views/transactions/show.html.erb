@@ -17,7 +17,7 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= render @transaction.tags, tag_actionable: false %>
+  <%= render @transaction.tags, transaction: @transaction, tag_actionable: true %>
 </p>
 
 <%= link_to "Edit", edit_transaction_path(@transaction), class: "crud_button" %>

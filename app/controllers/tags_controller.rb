@@ -43,6 +43,14 @@ class TagsController < ApplicationController
     end
   end
 
+  def remove
+    transaction = Transaction.find(params[:transaction_id])
+    tag = Tag.find(params[:id])
+
+    transaction.tags.destroy(tag)
+    head :ok
+  end
+
   private
 
   def set_tag
