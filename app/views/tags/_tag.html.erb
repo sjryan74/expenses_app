@@ -1,5 +1,6 @@
-<div class="tag">
+<div class="tag" data-controller="tag" data-target="tag.tag">
   <%= link_to "<span></span>".html_safe, '#', method: :delete,
-    remote: true, class: "remove", title: "Remove tag" if tag_actionable %>
+    remote: true, class: "remove", title: "Remove tag",
+    "data-action" => "click->tag#remove" if tag_actionable %>
   <%= link_to tag.name, '#' %>
 </div>
