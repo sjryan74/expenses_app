@@ -69,3 +69,4 @@ gem 'jquery-rails'
 gem "rails_12factor", group: :production
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'webpacker', '~> 5.2', '>= 5.2.1'
+gem 'geckodriver-helper', '~> 0.24.0'
