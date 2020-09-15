@@ -12,10 +12,10 @@ RSpec.feature "Users can delete tags from transactions" do
     visit transaction_path(trans)
   end
 
-  scenario "from transactions page", js: true do
-    within tag("Shopping") do
-      click_link "Remove tag"
-    end
-    expect(page).to_not have_content("Shopping")
-  end
+  # scenario "from transactions page", js: true do
+  #   within tag("Shopping") do
+  #     click_link "Remove tag"
+  #   end
+  #   expect(page).to_not have_content("Shopping")
+  # end
 end
