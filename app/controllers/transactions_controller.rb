@@ -44,6 +44,15 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search].present?
+      @transactions = Transaction.search(params[:search])
+    else
+      @transactions = Transaction.all.order(:trans_date)
+    end
+    render 'index'
+  end
+
   private
 
   def set_transaction
