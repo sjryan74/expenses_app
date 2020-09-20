@@ -1,14 +1,15 @@
 <h1>Transactions</h1>
 
-<ul class="trans-header">
+<ul class="trans-header" data-controller="trans-header">
   <li>
     <%= link_to "New Transaction", new_transaction_path, class: "crud_button" %>
   </li>
   <li>
     <%= form_tag search_transactions_path, method: :get, class: "form-inline" do %>
       <%= label_tag "search", "Search", class: "sr-only" %>
-      <%= text_field_tag "search", params[:search], class: "form-control" %>
+      <%= text_field_tag "search", params[:search], class: "form-control", "data-target" => "trans-header.search" %>
       <%= submit_tag "Search", class: "btn btn-outline-secondary ml-2" %>
+      <%= button_tag "Clear", type: 'reset', class: "btn btn-outline-secondary ml-2", "data-action" => "trans-header#clear" %>
     <% end %>
   </li>
 </ul>
