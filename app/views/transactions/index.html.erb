@@ -1,13 +1,17 @@
 <h1>Transactions</h1>
 
-<p>
-  <%= link_to "New Transaction", new_transaction_path, class: "crud_button" %>
-  <%= form_tag search_transactions_path, method: :get, class: "form-inline" do %>
-    <%= label_tag "search", "Search", class: "sr-only" %>
-    <%= text_field_tag "search", params[:search], class: "form-control" %>
-    <%= submit_tag "Search", class: "btn btn-outline-secondary ml-2" %>
-  <% end %>
-</p>
+<ul class="trans-header">
+  <li>
+    <%= link_to "New Transaction", new_transaction_path, class: "crud_button" %>
+  </li>
+  <li>
+    <%= form_tag search_transactions_path, method: :get, class: "form-inline" do %>
+      <%= label_tag "search", "Search", class: "sr-only" %>
+      <%= text_field_tag "search", params[:search], class: "form-control" %>
+      <%= submit_tag "Search", class: "btn btn-outline-secondary ml-2" %>
+    <% end %>
+  </li>
+</ul>
 
 <div class="table-responsive">
   <table class="table table-hover table-bordered table-sm">
