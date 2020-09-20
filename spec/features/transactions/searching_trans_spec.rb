@@ -22,4 +22,20 @@ RSpec.feature "Users can search for transactions" do
     expect(page).to have_content(transaction_1.description)
     expect(page).to_not have_content(transaction_2.description)
   end
+
+  scenario "search by exact description" do
+    fill_in "Search", with: "Coles supermarket"
+    click_button "Search"
+
+    expect(page).to have_content(transaction_1.description)
+    expect(page).to_not have_content(transaction_2.description)
+  end
+
+  scenario "search by partial description" do
+    fill_in "Search", with: "Coles"
+    click_button "Search"
+
+    expect(page).to have_content(transaction_1.description)
+    expect(page).to_not have_content(transaction_2.description)
+  end
 end
