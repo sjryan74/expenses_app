@@ -49,7 +49,7 @@ class TransactionsController < ApplicationController
     if search_field.nil?
       @transactions = Transaction.all.order(:trans_date)
     elsif search_field.starts_with?('tag:')
-      @transactions = Transaction.search(params[:search]).order(:trans_date)
+      @transactions = Transaction.search(search_field).order(:trans_date)
     else
       @transactions = Transaction.where('description like ?', "%#{search_field}%").order(:trans_date)
     end
