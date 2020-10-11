@@ -34,6 +34,16 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def add_tag
+    tag_name = params[:tag_name]
+    transaction = Transaction.find(params[:transaction_id])
+
+    tag = Tag.find_or_initialize_by(name: tag_name)
+    transaction.tags << tag
+    render json: tag
+    # head :ok
+  end
+
   def show
   end
 

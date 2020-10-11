@@ -1,4 +1,4 @@
-<div class="tag" data-controller="tag" data-target="tag.tag">
+<div class="tag" data-controller="tag" data-target="tag.tagdiv">
   <%= link_to "<span></span>".html_safe, transaction_remove_tag_path(transaction, tag),
     method: :delete, remote: true, class: "remove", title: "Remove tag",
     "data-action" => "click->tag#remove" if tag_actionable %>

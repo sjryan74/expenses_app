@@ -17,11 +17,15 @@
     </div>
   </div>
 
-  <div class="form-group row">
-    <div class="col-sm-4">
+  <div class="form-group row" data-controller="tag">
+    <div id="tag-container" class="col-sm-4">
       <%= label_tag :tag_names, "Tags", class: "col-form-label" %>
       <%= render transaction.tags, transaction: transaction, tag_actionable: true %>
-      <%= text_field_tag :tag_names, "", class: "form-control form-control-sm" %>
+      <%= hidden_field_tag 'trans_id', transaction.id, "data-target" => "tag.transid" %>
+      <%= text_field_tag :tag_names, "", class: "form-control form-control-sm",
+        "data-target" => "tag.taginput",
+        "data-action" => "change->tag#add"
+      %>
     </div>
   </div>
 
