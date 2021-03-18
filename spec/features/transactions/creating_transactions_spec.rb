@@ -17,6 +17,7 @@ RSpec.feature "Create transactions" do
   end
 
   scenario "with tags" do
+    # a comment
     visit "/transactions"
 
     click_link "New Transaction"
